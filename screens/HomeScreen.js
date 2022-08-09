@@ -1,30 +1,14 @@
-import React, { useEffect,useState } from 'react'
+import React from 'react'
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-import { getTasks } from '../api'
+
 import Layouts from '../components/Layouts'
 import TaskList from '../components/TaskList'
 
-const HomeScreen = () => {
-
-    const [tasks, setTasks] = useState([]);
-
-
-    const loadTasks = async () => {
-        const data = await getTasks();
-        setTasks(data)
-    }
-
-    useEffect(() => {
-        loadTasks();
-    }, [])
-
-    return (
-
-        <Layouts>
-            <TaskList tasks={tasks} />
-        </Layouts>
-    )
-}
+const HomeScreen = () =>(
+    <Layouts>
+        <TaskList />
+    </Layouts>
+);
 
 export default HomeScreen
 
